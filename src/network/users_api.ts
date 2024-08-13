@@ -1,12 +1,10 @@
 import { User } from '../models/user'
 import { fecthData } from '../utils/FetchData'
 
-const BACKEND_API = process.env.BACKEND_API
+const BACKEND_API = process.env.REACT_APP_BACKEND_API
 
 export async function getLoggedInUser(): Promise<User | null> {
-  const response = await fecthData(`${BACKEND_API}/api/users`, {
-    method: 'GET'
-  })
+  const response = await fecthData(`${BACKEND_API}api/users`, { method: 'GET' })
   return response.json()
 }
 
@@ -17,7 +15,7 @@ export interface SignUpCredentials {
 }
 
 export async function signUp(credentials: SignUpCredentials): Promise<User> {
-  const response = await fecthData(`${BACKEND_API}/api/users/signup`, {
+  const response = await fecthData(`${BACKEND_API}api/users/signup`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials)
@@ -31,7 +29,7 @@ export interface LoginCredentials {
 }
 
 export async function login(credentials: LoginCredentials): Promise<User> {
-  const response = await fecthData(`${BACKEND_API}/api/users/login`, {
+  const response = await fecthData(`${BACKEND_API}api/users/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials)
@@ -40,7 +38,5 @@ export async function login(credentials: LoginCredentials): Promise<User> {
 }
 
 export async function logout(): Promise<void> {
-  await fecthData(`${BACKEND_API}/api/users/logout`, {
-    method: 'POST'
-  })
+  await fecthData(`${BACKEND_API}logout`, { method: 'POST' })
 }
