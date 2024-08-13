@@ -5,7 +5,7 @@ import {
   UnauthorizedError
 } from '../errors/http_errors'
 
-export async function fecthData(input: RequestInfo, init?: RequestInit) {
+export async function fetchData(input: RequestInfo, init?: RequestInit) {
   try {
     const response = await fetch(input, init)
     if (response.ok) {

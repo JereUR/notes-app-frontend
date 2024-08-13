@@ -23,7 +23,7 @@ const NotesPageLoggedInView = () => {
       try {
         setShowNotesLoadingError(false)
         setNotesLoading(true)
-        const notes = await NotesApi.fecthNotes()
+        const notes = await NotesApi.fetchNotes()
         setNotes(notes)
       } catch (error) {
         console.error(error)
