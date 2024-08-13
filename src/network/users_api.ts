@@ -38,5 +38,5 @@ export async function login(credentials: LoginCredentials): Promise<User> {
 }
 
 export async function logout(): Promise<void> {
-  await fetchData(`${BACKEND_API}logout`, { method: 'POST' })
+  await fetchData(`${BACKEND_API}api/users/logout`, { method: 'POST' })
 }
